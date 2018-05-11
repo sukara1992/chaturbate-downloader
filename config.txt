@@ -16,4 +16,5 @@
 --proxy "socks5://127.0.0.1:1080/"
 
 #调用外部下载工具
-#--external-downloader aria2c
+--external-downloader aria2c
+

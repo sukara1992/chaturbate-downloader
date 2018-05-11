@@ -12,9 +12,10 @@ def download(url):
     try:
         while True:
             print("正在下载"+url+"上面的视频")
-            os.system("youtube-dl" + " " + url + " " + "--config-location ./config.txt ")
+            a=os.system("youtube-dl" + " " + url + " " + "--config-location ./config.txt ")
             #print(url+"执行完了")
             # 十分钟后再次执行
+            print(a)
             time.sleep(600);
         return True
     except KeyboardInterrupt:
@@ -24,10 +25,12 @@ def download(url):
 
 if __name__ == '__main__':
     baseurl="https://zh.chaturbate.com/"
-    names=["annabellasweet98","kishorny_99","aimilu","diamond_jackson","chinesesweety"]
+    #names=["annabellasweet98","letty_petite","amelinda999","kishorny_99","aimilu","diamond_jackson","chinesesweety"]
+    #names=["amelinda999","aimilu"]
+    names=["amelinda999"]
     fullurls=map(lambda x:baseurl+x, names)
     #开启尽量多的核心
-    pool = multiprocessing.Pool(multiprocessing.cpu_count())
+    pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
     
     #同步调用
     # for name in names:
@@ -41,7 +44,10 @@ if __name__ == '__main__':
 
     for fullurl in fullurls:
         pool.apply_async(download,args=(fullurl,))
+    #pool.map(download,fullurls)
 
-    pool.close()
+    print("hhhhhhhhhhh")
+    pool.close()  # 关闭进程池，表示不能在往进程池中添加进程
     pool.join()   #对Pool对象调用join()方法会等待所有子进程执行完毕，调用join()之前必须先调用close()，调用close()之后就不能继续添加新的Process了。
 
+    print ("Sub-process(es) done.")
