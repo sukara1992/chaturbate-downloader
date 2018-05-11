@@ -6,7 +6,8 @@ def download(url):
     try:
         while True:
             print("正在下载"+url+"上面的视频")
-            os.system("youtube-dl" + " " + url + " " + "--config-location ./config.txt ")
+            a=os.system("youtube-dl" + " " + url + " " + "--config-location ./config.txt ")
+            print(a)
             #print(url+"执行完了")
             # 十分钟后再次执行
             time.sleep(600);
