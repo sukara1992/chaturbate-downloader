@@ -17,7 +17,7 @@ sudo apt-get install ffmpeg
 
 1. 下载代码（Windows用户请在git-bash里执行）
 
-        git clone git://github.com/iambus/youku-lixian.git
+        git clone git://github.com/masterzht/chaturbate-downloader.git
 
 2. 安装Python 3.x
 
